@@ -1,5 +1,5 @@
 NAME = rush-02
-SRC = main.c helpers_1.c helpers_2.c checks.c set_struct.c
+SRC = main.c struct_helpers.c
 RM = rm -f
 
 # take everything in the variable SRC, look for the ending .c
