@@ -16,37 +16,45 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dlen;
-	size_t	slen;
+	size_t	dst_len;
+	size_t	src_len;
 	size_t	i;
 
-	dlen = 0;
-	slen = 0;
+	dst_len = 0;
+	src_len = 0;
 	i = 0;
-	while (dst[dlen] != '\0' && dlen < size)
-		dlen++;
-	while (src[slen] != '\0')
-		slen++;
-	if (size == dlen)
-		return (dlen + slen);
-	while (src[i] != '\0' && (dlen + i) < (size - 1))
+	while (dst[dst_len] != '\0' && dst_len < size)
+		dst_len++;
+	while (src[src_len] != '\0')
+		src_len++;
+	if (size == dst_len)
+		return (dst_len + src_len);
+	while (src[i] != '\0' && (dst_len + i) < (size - 1))
 	{
-		dst[dlen + i] = src[i];
+		dst[dst_len + i] = src[i];
 		i++;
 	}
-	if (dlen + i < size)
-		dst[dlen + i] = '\0';
-	return (dlen + slen);
+	if (dst_len + i < size)
+		dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
 
-//#include <stdio.h>
-//int	main(void)
-//{
-//	char dest1[25] = "o rato roeu o ";
-//	char *text1 = "rei da 42";
-//	int result1;
-//
-//	result1 = ft_strlcat(dest1, text1, 18);
-//	printf("result1: %i\n", result1);
-//	printf("text1: %s\n", dest1);
-//}
+// #include <stdio.h>
+// #include <bsd/string.h>
+
+// int	main(void)
+// {
+// 	char my_dst[20] = "Hello ";
+// 	char og_dst[20] = "Hello ";
+// 	const char *src = "World!";
+// 	size_t size = 10;
+
+// 	size_t my_ret = ft_strlcat(my_dst, src, size);
+// 	size_t og_ret = strlcat(og_dst, src, size);
+
+// 	printf("--- Test: size = %zu ---\n", size);
+// 	printf("[MY] Return: %zu | Result: '%s'\n", my_ret, my_dst);
+// 	printf("[OG] Return: %zu | Result: '%s'\n", og_ret, og_dst);
+
+// 	return (0);
+// }
