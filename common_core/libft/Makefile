@@ -4,7 +4,6 @@ NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I .
 
-SRCS_DIR = srcs
 SRCS = $(wildcard ft_*.c)
 
 # REMOVER O WILDCARD ANTES DE ENVIAR

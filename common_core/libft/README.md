@@ -1,11 +1,13 @@
-This project has been created as part
-of the 42 curriculum by hegoncal.
+*This project has been created as part of the 42 curriculum by hegoncal.*
 
-## Description
+# Description
+
 abc
 
-## Instructions
+# Instructions
+
 abc
 
-## Resources
+# Resources
+
 abc
