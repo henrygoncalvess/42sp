@@ -11,31 +11,58 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_strtrim(char const *s1, char const *set);
+char		*ft_strtrim(char const *s1, char const *set);
+static int	is_in_set(char c, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*trimmed_str;
-	int i;
+	int		start;
+	int		end;
+	int		i;
 
-	if (!s1)
-		return (NULL);
-	i =0;
-	while (s1[i])
-	trimmed_str = malloc((1 + 1) * sizeof(char *));
+	start = 0;
+	while (s1[start] && is_in_set(s1[start], set))
+		start++;
+	end = 0;
+	while (s1[end])
+		end++;
+	while ((end - 1) > start && is_in_set(s1[(end - 1)], set))
+		end--;
+	trimmed_str = malloc(((end - 1) - start + 2) * sizeof(char));
 	if (!trimmed_str)
 		return (NULL);
-	trimmed_str[0] = '\0';
+	i = 0;
+	while (start <= (end - 1))
+	{
+		trimmed_str[i] = s1[start];
+		i++;
+		start++;
+	}
+	trimmed_str[i] = '\0';
 	return (trimmed_str);
 }
 
-#include <stdio.h>
-
-int	main(void)
+static int	is_in_set(char c, char const *set)
 {
-	printf("%s\n", ft_strtrim("lorem 6ipsum6 dolor bla bla bla", "6"));
-	printf("%s\n", ft_strtrim("lorem ipsum dolor sit amet", "te"));
-	printf("%s\n", ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " "));
+	int	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (c == set[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_strtrim("lorem 67ipsum67 dolor bla bla bla", "67"));
+// 	printf("%s\n", ft_strtrim("lorem ipsum dolor sit amet", "te"));
+// 	printf("%s\n", ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " "));
+// }
