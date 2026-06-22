@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *nptr);
+int	ft_atoi(const char *nptr);
 
-int	ft_atoi(char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int	sign;
 	int	limit;

@@ -3,16 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hegoncal <hegoncal@student.42.fr>          #+#  +:+       +#+        */
+/*   By: hegoncal <hegoncal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-04 23:57:45 by hegoncal          #+#    #+#             */
-/*   Updated: 2026-06-04 23:57:45 by hegoncal         ###   ########.fr       */
+/*   Created: 2026/06/04 23:57:45 by hegoncal          #+#    #+#             */
+/*   Updated: 2026/06/22 20:15:49 by hegoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len);
+
+// Description
+// The strstr() function finds the first occurrence of the substring little in
+// the string big. The terminating null bytes are not compared.
+
+// Return Value
+// strstr() function return a pointer to the beginning of the substring, or NULL
+// if the substring is not found.
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

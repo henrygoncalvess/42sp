@@ -3,16 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hegoncal <hegoncal@student.42.fr>          #+#  +:+       +#+        */
+/*   By: hegoncal <hegoncal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-03 13:50:21 by hegoncal          #+#    #+#             */
-/*   Updated: 2026-06-03 13:50:21 by hegoncal         ###   ########.fr       */
+/*   Created: 2026/06/03 13:50:21 by hegoncal          #+#    #+#             */
+/*   Updated: 2026/06/22 19:51:37 by hegoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+
+// DESCRIPTION
+// The strlcat() function concatenate strings. strlcat() take the full size of
+// the buffer (not just the length) and guarantee to NUL-terminate the result
+// (as long as size is larger than 0 or, in the case of strlcat(), as long as
+// there is at least one byte free in dst). Note that a byte for the NUL should
+// be included in size. strlcpy() and strlcat() only operate on true "C" strings
+
+// The strlcat() function appends the NUL-terminated string src to the end of
+// dst. It will append at most size - strlen(dst) - 1 bytes, NUL-terminating
+// the result.
+
+// RETURN VALUE
+// The strlcpy() and strlcat() functions return the total length of the string
+// they tried to create. For strlcat() that means the initial length of dst plus
+// the length of src.
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

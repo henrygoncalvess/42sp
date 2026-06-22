@@ -3,16 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hegoncal <hegoncal@student.42.fr>          #+#  +:+       +#+        */
+/*   By: hegoncal <hegoncal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-03 17:45:14 by hegoncal          #+#    #+#             */
-/*   Updated: 2026-06-03 17:45:14 by hegoncal         ###   ########.fr       */
+/*   Created: 2026/06/03 17:45:14 by hegoncal          #+#    #+#             */
+/*   Updated: 2026/06/22 20:17:51 by hegoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n);
+
+// DESCRIPTION
+// The memcpy() function copies n bytes from memory area src to memory area
+// dest. The memory areas must not overlap.
+
+// RETURN VALUE
+// The memcpy() function returns a pointer to dest.
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

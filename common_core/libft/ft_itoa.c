@@ -48,6 +48,8 @@ static long	number_len(long n)
 	long	len;
 
 	len = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		n = -n;

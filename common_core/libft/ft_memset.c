@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hegoncal <hegoncal@student.42.fr>          #+#  +:+       +#+        */
+/*   By: hegoncal <hegoncal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-03 16:38:52 by hegoncal          #+#    #+#             */
-/*   Updated: 2026-06-03 16:38:52 by hegoncal         ###   ########.fr       */
+/*   Created: 2026/06/03 16:38:52 by hegoncal          #+#    #+#             */
+/*   Updated: 2026/06/22 17:41:44 by hegoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 
 void	*ft_memset(void *s, int c, size_t n);
 
+// DESCRIPTION
+// The memset() function fills the first n bytes of the memory area pointed to
+// by s with the constant byte c.
+
+// RETURN VALUE
+// The memset() function returns a pointer to the memory area s.
+
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t			i;
-	unsigned char	*s_tmp;
+	unsigned char	*tmp_s;
 
-	s_tmp = (unsigned char *)s;
+	tmp_s = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
-		s_tmp[i] = (unsigned char)c;
+		tmp_s[i] = (unsigned char)c;
 		i++;
 	}
 	return (s);
