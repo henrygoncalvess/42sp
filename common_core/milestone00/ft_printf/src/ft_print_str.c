@@ -12,10 +12,22 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_char(char c);
+int	ft_print_str(char *s);
 
-int	ft_printf_char(char c)
+int	ft_print_str(char *s)
 {
-	write(1, &c, 1);
-	return (1);
+	int	i;
+	int	printed_chars;
+
+	printed_chars = 0;
+	i = 0;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		printed_chars++;
+		i++;
+	}
+	if (s[i] == '\0')
+		printed_chars++;
+	return (printed_chars);
 }

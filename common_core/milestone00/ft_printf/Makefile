@@ -2,32 +2,38 @@
 NAME = libftprintf.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I .
+CFLAGS = -Wall -Wextra -Werror -I includes
 
-SRCS = $(wildcard ft_*.c)
+SRCS = $(wildcard src/ft_*.c)
 #   ls | sed 's/\.c/\ \\/'
 
 OBJS = $(SRCS:.c=.o)
 
 LIBFT_DIR = libft
-LIBFT_SRCS = ft_putchar_fd.c
-LIBFT_OBJS = $(LIBFT_DIR)/$(LIBFT_SRCS:.c=.o)
+LIBFT = $(LIBFT_DIR)/libft.a
 
 AR = ar rcs
 RM = rm -f
 
 #   RULES
 #   "My goal is to construct the NAME variable"
-#   C looks in the folder: "does libftprintf.a exist and is it up-to-date?".
-#   If it's not, it goes down to look for a rule that teaches how to create
-#   libftprintf.a.
+#   C looks in the folder: "does $(NAME) exist and is it up-to-date?". If it's
+#   not, it goes down to look for a rule that teaches how to create $(NAME)
 all: $(NAME)
 
 #   rule that creates $(NAME)
 #   "to create $(NAME), i first need all the OBJS
 #   (files with the .o extension) to exist"
-$(NAME): $(OBJS) $(LIBFT_OBJS)
-	$(AR) $(NAME) $(OBJS) $(LIBFT_OBJS)
+
+# 	1. Copies $(LIBFT) and renames it to $(NAME)
+# 	2. Injects $(OBJS)'s .o files into the copied library
+$(NAME): $(OBJS) $(LIBFT)
+	cp $(LIBFT) $(NAME)
+	$(AR) $(NAME) $(OBJS) $(LIBFT)
+
+#   Enters the $(LIBFT_DIR) folder and runs its Makefile
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
 
 #   PATTERN RULE
 #   it tells the Makefile how to transform
@@ -39,14 +45,18 @@ $(NAME): $(OBJS) $(LIBFT_OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-#   Delete all .o files
+#   1. Delete all .o files
+#   2. make enters $(LIBFT_DIR) folder and executes the "clean" rule of the
+#   Makefile for that folder
 clean:
-	$(RM) $(OBJS) $(LIBFT_OBJS)
+	$(RM) $(OBJS) $(LIBFT)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 #   after deleting the .o files, it also deletes
 #   the final file
 fclean: clean
 	$(RM) $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 #   rebuild everything from scratch
 re: fclean all
