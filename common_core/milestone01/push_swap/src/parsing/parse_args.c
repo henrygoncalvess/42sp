@@ -6,7 +6,7 @@
 /*   By: hegoncal <hegoncal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 19:21:40 by pahenriq          #+#    #+#             */
-/*   Updated: 2026/09/10 18:56:38 by hegoncal         ###   ########.fr       */
+/*   Updated: 2026/09/13 22:10:31 by hegoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,20 +93,20 @@ int	parse_args(int argc, char **argv, t_ps *ps)
 	while (i < argc)
 	{
 		args = ft_split(argv[i], ' ');
-		if (!args)
-			return (0);
-		if (!args[0])
+		if (!args || !args[0])
 		{
-			free(args);
+			free_args(args);
 			return (0);
 		}
 		j = 0;
-		while (args[j])
-		{
-			if (!parse_and_set_arg(args[j], ps))
-				return (0);
+		while (args[j] && parse_and_set_arg(args[j], ps))
 			j++;
+		if (args[j])
+		{
+			free_args(args);
+			return (0);
 		}
+		free_args(args);
 		i++;
 	}
 	return (1);

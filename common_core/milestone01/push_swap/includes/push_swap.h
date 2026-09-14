@@ -6,7 +6,7 @@
 /*   By: hegoncal <hegoncal@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 12:59:35 by pahenriq          #+#    #+#             */
-/*   Updated: 2026/09/09 21:34:38 by hegoncal         ###   ########.fr       */
+/*   Updated: 2026/09/13 20:01:35 by hegoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_ps
 typedef void		(*t_fn)(t_ps *ps);
 
 int					parse_args(int argc, char **argv, t_ps *ps);
+void				free_args(char **args);
 
 t_node				*node_new(int value);
 void				stack_clear(t_node **top);

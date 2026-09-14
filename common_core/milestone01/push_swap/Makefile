@@ -18,6 +18,7 @@ SRCS = src/algorithms/base_three.c \
        src/operations/ops_push_swap.c \
        src/operations/ops_rotate.c \
        src/parsing/parse_args.c \
+       src/parsing/free_args.c \
        src/main.c
 
 OBJ_DIR = obj
