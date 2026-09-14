@@ -1,0 +1,5 @@
+#/usr/bin/env bash
+
+for dir in ex*/; do
+    cp main.py "$dir"
+done
