@@ -13,7 +13,7 @@ class Plant:
 def main() -> None:
     rose = Plant("Rose", 25, 30)
     sunflower = Plant("Sunflower", 80, 45)
-    cactus = Plant("Cactus", 25, 30)
+    cactus = Plant("Cactus", 15, 120)
 
     print("=== Garden Plant Registry ===")
     rose.show()
