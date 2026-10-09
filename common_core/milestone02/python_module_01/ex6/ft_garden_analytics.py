@@ -32,7 +32,7 @@ class Plant:
         self.stats = self.Stats()
 
     @staticmethod
-    def check_age(age) -> None:
+    def check_age(age: int) -> None:
         if age > 365:
             print(f"Is {age} days more than a year? -> True")
         else:
@@ -49,11 +49,11 @@ class Plant:
         )
         self.stats.record_show()
 
-    def grow(self, how_much_2grow) -> None:
+    def grow(self, how_much_2grow: int) -> None:
         self._height += how_much_2grow
         self.stats.record_grow()
 
-    def age(self, how_much_2age) -> None:
+    def age(self, how_much_2age: int) -> None:
         self._plant_age += how_much_2age
         self.stats.record_age()
 
@@ -101,7 +101,7 @@ class Flower(Plant):
 
 
 class Seed(Flower):
-    def __init__(self, name, height, plant_age, color):
+    def __init__(self, name: str, height: int, plant_age: int, color: str) -> None:
         super().__init__(name, height, plant_age, color)
         self.seeds = 0
 
