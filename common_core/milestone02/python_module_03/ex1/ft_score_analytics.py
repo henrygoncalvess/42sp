@@ -11,8 +11,8 @@ def main() -> None:
     print(f"{b_blue}=== Player Score Analytics ==={reset}")
 
     if len(sys.argv) == 1:
-        print(f"{b_red}No scores provided. Usage: python3 ",
-              "ft_score_analytics.py <score1> <score2> ...")
+        print(f"{b_red}No scores provided. Usage: python3 "
+              f"ft_score_analytics.py <score1> <score2> ...{reset}")
         return
 
     scores: list[int] = []
@@ -26,11 +26,9 @@ def main() -> None:
         i += 1
 
     if not scores:
-        print(f"{b_red}No scores provided. Usage: python3 ",
-              "ft_score_analytics.py <score1> <score2> ...")
+        print(f"{b_red}No scores provided. Usage: python3 "
+              f"ft_score_analytics.py <score1> <score2> ...{reset}")
         return
-
-    num_args: int = len(scores)
 
     data = [
         ["Total players ", len(scores)],

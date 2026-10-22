@@ -1,0 +1,4 @@
+#/usr/bin/env bash
+
+find . -name "*py*cache*" -exec rm -rf {} +;
+find ./ex* -name "main.py" -exec rm -rf {} +;
