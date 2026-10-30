@@ -31,16 +31,18 @@ def test_custom_errors() -> None:
         print(f"Testing {label}...")
         try:
             func()
-        except GardenError as e:
-            print(f"Caught {e.__class__.__name__}: {e}")
+        except PlantError as error:
+            print(f"Caught PlantError: {error}")
+        except WaterError as error:
+            print(f"Caught WaterError: {error}")
         print()
 
     print("Testing catching all garden errors...")
     for func in (test_plant_error, test_water_error):
         try:
             func()
-        except GardenError as e:
-            print(f"Caught GardenError: {e}")
+        except GardenError as error:
+            print(f"Caught GardenError: {error}")
 
     print("\nAll custom error types work correctly!")
 
