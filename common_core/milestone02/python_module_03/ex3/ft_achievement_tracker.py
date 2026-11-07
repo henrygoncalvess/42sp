@@ -21,7 +21,7 @@ ACHIEVEMENTS: list[str] = [
 
 
 def gen_player_achievements() -> set[str]:
-    amount: int = random.randint(6, 9)
+    amount: int = random.randint(5, 10)
     return set(random.sample(ACHIEVEMENTS, amount))
 
 

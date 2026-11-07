@@ -39,7 +39,7 @@ def main() -> None:
         ["Score range ", max(scores) - min(scores)],
     ]
 
-    print(f"{yellow}{'Scores processed ':·<20}", end=f" {b_green}[")
+    print(f"{yellow}{'Scores processed ':·<21}", end=f" {b_green}[")
     score_num = 0
     while score_num < len(scores):
         if score_num < len(scores) - 1:
@@ -49,7 +49,7 @@ def main() -> None:
         score_num += 1
     print(f"]{reset}")
     for label, val in data:
-        print(f"{yellow}{label:·<20} {b_green}{val}{reset}")
+        print(f"{yellow}{label:·<21} {b_green}{val}{reset}")
 
 
 if __name__ == "__main__":

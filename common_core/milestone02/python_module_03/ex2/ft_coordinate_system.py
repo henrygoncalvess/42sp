@@ -11,16 +11,16 @@ def get_player_pos() -> tuple[float, float, float]:
             print("Invalid syntax")
             continue
 
-        current: str = x_part
+        current_param: str = x_part
         try:
-            x: float = float(current)
-            current = y_part
-            y: float = float(current)
-            current = z_part
-            z: float = float(current)
-            return (x, y, z)
+            x: float = float(current_param)
+            current_param = y_part
+            y: float = float(current_param)
+            current_param = z_part
+            z: float = float(current_param)
+            return x, y, z
         except ValueError as error:
-            print(f"Error on parameter '{current}': {error}")
+            print(f"Error on parameter '{current_param}': {error}")
 
 
 def get_distance(pos1: tuple[float, float, float],
@@ -36,16 +36,16 @@ def main() -> None:
     try:
         print("Get a first set of coordinates")
         pos1: tuple[float, float, float] = get_player_pos()
-        x, y, z = pos1
         print(f"Got a first tuple: {pos1}")
+        x, y, z = pos1
         print(f"It includes: X={x}, Y={y}, Z={z}")
         center: tuple[float, float, float] = (0.0, 0.0, 0.0)
         print(f"Distance to center: {round(get_distance(center, pos1), 4)}")
 
         print("\nGet a second set of coordinates")
         pos2: tuple[float, float, float] = get_player_pos()
-        distance: float = round(get_distance(pos1, pos2), 4)
-        print(f"Distance between the 2 sets of coordinates: {distance}")
+        distance_p1_p2: float = round(get_distance(pos1, pos2), 4)
+        print(f"Distance between the 2 sets of coordinates: {distance_p1_p2}")
     except (EOFError, KeyboardInterrupt):
         print("\nInput interrupted. Exiting.")
 

@@ -5,8 +5,17 @@ def main() -> None:
     print("=== Game Data Alchemist ===")
     print()
 
-    players: list[str] = ["Alice", "bob", "Charlie", "dylan", "Emma",
-                          "Gregory", "john", "kevin", "Liam"]
+    players: list[str] = [
+        "Alice",
+        "bob",
+        "Charlie",
+        "dylan",
+        "Emma",
+        "Gregory",
+        "john",
+        "kevin",
+        "Liam",
+    ]
     print(f"Initial list of players: {players}")
 
     capitalized: list[str] = [n.capitalize() for n in players]
